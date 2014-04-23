@@ -4,6 +4,7 @@ gem 'rails', '4.1.0'
 
 #DATA STORES
 gem 'mongoid', '~> 4.0.0.beta1', github: 'mongoid/mongoid'
+gem 'bson_ext'
 gem 'redis'
 
 #WEB SERVERS
