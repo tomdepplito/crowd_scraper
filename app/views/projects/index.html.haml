@@ -1,1 +1,9 @@
-%div{'ng-app' => 'ProjectSearch'}
+%div{'ng-app' => 'projects'}
+  %div{'ng-controller' => 'ProjectsCtrl', class: 'container-fluid'}
+    %h1 Crowd Scraper
+    %input{ 'ng-model' => 'search_input', id: 'search-id'}
+    %button{ 'ng-click' => 'search(search_input)', id: 'search-btn', class: 'btn btn-success'}
+      Search
+    %div{'ng-repeat' => 'project in projects'}
+      {{project}}
+    Rails View

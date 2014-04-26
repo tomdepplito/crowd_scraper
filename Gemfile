@@ -20,6 +20,7 @@ gem 'multi_json'
 #FRONT END
 gem 'haml-rails'
 gem 'uglifier', '>= 1.3.0'
+#gem 'bootstrap-sass'
 
 #JAVASCRIPT
 gem 'jquery-rails'
