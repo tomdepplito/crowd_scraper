@@ -22,7 +22,15 @@ projects
     var searchResults = $q.defer();
     var getResults = function(data) {
       $timeout(function() {
-        searchResults.resolve($http({url: './projects.json', params: {input: data}, method: 'GET'}).success(function(data) {return data; }));
+        searchResults
+          .resolve($http(
+            {url: './search_projects.json',
+             params: {input: data},
+             method: 'GET'}
+          )
+          .success(function(data) {
+            return data; 
+          }));
       }, 100);
       return searchResults.promise;
     };
@@ -30,21 +38,17 @@ projects
     return {
       getResults: getResults
     };
-
   }]);
 
 projects
   .controller('ProjectsCtrl', ['$scope', '$http', 'searchService', function ($scope, $http, searchService) {
-    $scope.search_input = ''
-    $scope.testing = 'working';
-    $scope.search = function(searchInput) {
-      searchService.getResults(searchInput).then(function(result) { $scope.projects = result.data; })
-    };
-/*
-    $scope.search = function() { 
-      $scope.projects = searchService.getResults;
-    }
-*/
+      $scope.search_input = '';
+      $scope.search = function(searchInput) {
+        searchService.getResults(searchInput)
+          .then(function(result) {
+            $scope.projects = result.data;
+            $scope.search_input = '';
+        });
+      };
     }
   ]);
-
