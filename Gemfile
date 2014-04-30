@@ -13,6 +13,7 @@ gem 'thin', group: :development
 
 #HTTP
 gem 'httparty'
+gem 'nokogiri'
 
 #JSON
 gem 'multi_json'
